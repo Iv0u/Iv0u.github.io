@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List 2023</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="mainDiv">
+        <div class="header">
+            <h1>Списък за пазаруване - Нова година 2023</h1>
+        </div>
+        <div class="addItems">
+            <label for="item">Продукт: </label>
+            <input type="text" name="item" id="item">
+            <button>Добави</button>
+
+            <ul>
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const list = document.querySelector('ul');
+        const input = document.querySelector('input');
+        const button = document.querySelector('button');
+
+        button.onclick = function () {
+            let newItem = input.value;
+            input.value = '';
+
+            let itemList = document.createElement('li');
+            let itemText = document.createElement('span');
+            let itemBtn = document.createElement('button');
+
+            itemList.appendChild(itemText);
+            itemText.textContent = newItem;
+
+            itemList.appendChild(itemBtn);
+            itemBtn.textContent = 'Премахни';
+
+            list.appendChild(itemList);
+
+            itemBtn.onclick = function () {
+                list.removeChild(itemList);
+            }
+
+            input.focus();
+        }
+    </script>
+</body>
+
+</html>
